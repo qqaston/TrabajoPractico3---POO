@@ -1,9 +1,9 @@
-import java.util.Random;
+    import java.util.Random;
 /**
  * Write a description of class CreaFigura here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author GAUNA GASTON LEONEL
+ * @version 31/8/2026
  */
 
 public class CreaFigura
@@ -18,7 +18,8 @@ public class CreaFigura
         
         cir1.caracteristicas();
         
-        Circulo cir2 = new Circulo(radio,new Punto(5.2,0.5));
+        double radio2 = unNumero.nextDouble() * 100.0;
+        Circulo cir2 = new Circulo(radio2,new Punto(5.2,0.5));
         
         cir2.caracteristicas();
         

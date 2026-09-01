@@ -23,7 +23,10 @@ public class CreaFigura
         cir2.caracteristicas();
         
         System.out.println("Distancia entre cir1 y cir2: " + cir1.distanciaA(cir2));
-        System.out.println("El ciruclo mayor es: " + cir1.elMayor(cir2));
+        
+        Circulo elMasGrande = cir1.elMayor(cir2);
+        System.out.println("El círculo mayor es:");
+        elMasGrande.caracteristicas();
         
     }
 }

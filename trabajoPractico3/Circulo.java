@@ -55,6 +55,7 @@ public class Circulo
      * This class print to caracter circule
      */
     public void caracteristicas(){
+        System.out.println("==========CIRCULO==========");
         System.out.println("Centro: " + this.centro.coordenadas() + " - Radio: " + this.getRadio());
         System.out.println("Superficie: " + this.superficie() + " - Perimetro: " + this.perimetro());
     }

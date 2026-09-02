@@ -10,7 +10,6 @@ public class CreaFigura
 {
     public static void main(String[] args){
         //---CIRCULO---
-        System.out.println("==========CIRCULO==========");
         Random unNumero = new Random();
         double radio = unNumero.nextDouble() * 100.0;
         
@@ -32,7 +31,6 @@ public class CreaFigura
         elMasGrande.caracteristicas();
         
         //---RECTANGULO---
-        System.out.println("==========RECTANGULO==========");
         double lado1 = unNumero.nextDouble() * 100.0;
         double lado2 = unNumero.nextDouble() * 100.0;
         
@@ -45,7 +43,10 @@ public class CreaFigura
         double lado4 = unNumero.nextDouble() * 100.0;
         Rectangulo rect2 = new Rectangulo(new Punto(7.4,4.5),lado3,lado4);
         
-        rect2.caracteristicas();
+        Rectangulo elMayorRect = rect1.elMayor(rect2);
+        System.out.println("El rectángulo mayor es:");
+        elMayorRect.caracteristicas();
+        
         System.out.println("La distancia entre los dos rectangulos es de : " + rect1.distanciaA(rect2));
     }
 }

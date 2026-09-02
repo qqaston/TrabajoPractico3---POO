@@ -73,8 +73,8 @@ public class Rectangulo
      * Imprime por pantalla las caracteristicas del rectangulo
      */
     public void caracteristicas(){
-        System.out.println("Centro: " + this.origen.coordenadas() + "- Alto: " + this.getAlto() + " Ancho: " + this.getAncho());
-        System.out.println("Superficie: " + this.superficie() + "- Perimetro: " + this.perimetro());
+        System.out.println("Centro: " + this.origen.coordenadas() + " - Alto: " + this.getAlto() + " Ancho: " + this.getAncho());
+        System.out.println("Superficie: " + this.superficie() + " - Perimetro: " + this.perimetro());
     }
     
     /**

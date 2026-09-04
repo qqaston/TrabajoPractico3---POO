@@ -73,7 +73,7 @@ public class CuentaCorriente
      * El método puedeExtraer(p_importe) devuelve true si el importe a retirar no supera el saldo más el límite de descubierto autorizado. 
      */
     private boolean puedoExtraer(double p_importe){
-        if (p_importe < (this.getLimiteDescubierto() + this.getSaldo())){
+        if (p_importe <= (this.getLimiteDescubierto() + this.getSaldo())){
             return true;
         }else {
             return false;
@@ -84,10 +84,12 @@ public class CuentaCorriente
      * El método extraccion(p_importe) es el que realiza efectivamente la extracción. 
      */
     private void extraccion(double p_importe){
-        if (p_importe < this.getSaldo()){
+        if (p_importe <= this.getSaldo()){
             this.setSaldo(this.getSaldo() - p_importe);
         }else{
-            this.setLimiteDescubierto(p_importe - this.getSaldo());
+            double resto = p_importe - this.getSaldo(); 
+            this.setSaldo(0); // El saldo se agota
+            this.setLimiteDescubierto(this.getLimiteDescubierto() - resto);
         }
     }
     
@@ -110,7 +112,7 @@ public class CuentaCorriente
      */
     
     public void mostrar(){
-        System.out.println("- CUENTA BANCARIA -");
+        System.out.println("- CUENTA CORRIENTE -");
         System.out.println("Nro Cuenta: " + this.getNroCuenta() + " - Saldo: " + this.getSaldo());
         System.out.println("Titular: " + this.getTitular().nomYApe());
         System.out.println("Descubierto: " + this.getLimiteDescubierto());

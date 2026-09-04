@@ -73,7 +73,7 @@ public class CajaDeAhorro
      * 
      */
     private boolean puedoExtraer(double p_importe){
-        if (p_importe < this.getSaldo() && this.getExtraccionesPosibles() > 0){
+        if (p_importe <= this.getSaldo() && this.getExtraccionesPosibles() > 0){
             return true;
         }else {
             return false;
@@ -93,7 +93,7 @@ public class CajaDeAhorro
         if(this.puedoExtraer(p_importe)){
             this.extraccion(p_importe);
             System.out.println("*** EXTRACCION EXISTOSA ***");
-        }else if(this.getExtraccionesPosibles() < 0){
+        }else if(this.getExtraccionesPosibles() <= 0){
             System.out.println("*** No tiene habilitadas mas extracciones! ***");
         }else{
             System.out.println("*** No puede extraer mas que el saldo! ***");
@@ -102,9 +102,9 @@ public class CajaDeAhorro
     
        
     public void mostrar(){
-        System.out.println("- CUENTA BANCARIA -");
+        System.out.println("- CAJA DE AHORRO -");
         System.out.println("Nro Cuenta: " + this.getNroCuenta() + " - Saldo: " + this.getSaldo());
         System.out.println("Titular: " + this.getTitular().nomYApe());
-        System.out.println("Descubierto: " + this.getExtraccionesPosibles());
+        System.out.println("Extracciones Disponibles: " + this.getExtraccionesPosibles());
     }  
 }

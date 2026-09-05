@@ -1,4 +1,4 @@
-
+import java.util.GregorianCalendar;
 /**
  * Write a description of class Banco here.
  * 
@@ -10,7 +10,7 @@ public class Banco {
     public static void main(String[] args) {
         
         // 1. Instanciamos el titular (Mismo objeto Persona para ambas cuentas)
-        Persona titular = new Persona(30827497, "Juan", "Perez", 1999);
+        Persona titular = new Persona(30827497, "Juan", "Perez", new GregorianCalendar(1999,8,5));
         
         // 2. Instanciamos las cuentas asignando el mismo titular
         CajaDeAhorro cajaAhorro = new CajaDeAhorro(101, titular, 3000.0);
@@ -23,6 +23,10 @@ public class Banco {
         System.out.println("       PRUEBAS DE CAJA DE AHORRO");
         System.out.println("==========================================");
         cajaAhorro.mostrar();
+        
+        if (titular.esCumpleanos()) {
+            System.out.println("¡Feliz cumpleaños " + titular.nomYApe() + "! Te desea el Banco.");
+        }
         
         System.out.println("\n---> 1. Extraccion exitosa ($1000):");
         cajaAhorro.extraer(1000);
@@ -49,6 +53,10 @@ public class Banco {
         System.out.println("       PRUEBAS DE CUENTA CORRIENTE");
         System.out.println("==========================================");
         cuentaCorriente.mostrar();
+        
+        if (titular.esCumpleanos()) {
+            System.out.println("¡Feliz cumpleaños " + titular.nomYApe() + "! Te desea el Banco.");
+        }
         
         System.out.println("\n---> 1. Extraccion exitosa usando solo saldo ($1500):");
         cuentaCorriente.extraer(1500);

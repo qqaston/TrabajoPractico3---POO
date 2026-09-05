@@ -16,11 +16,18 @@ public class Persona {
     private Calendar fechaNacimiento; //reemplazado (int anioNacimiento;);
     
     //metodo constructor
-    public Persona(int p_dni, String p_nombre, String p_apellido, int p_anio){
+    public Persona(int p_dni, String p_nombre, String p_apellido,int p_anio){
         this.setDNI(p_dni);
         this.setNombre(p_nombre);
         this.setApellido(p_apellido);
         this.setAnioNacimiento(p_anio);
+    }
+    
+    public Persona(int p_dni, String p_nombre, String p_apellido,Calendar p_fecha){
+        this.setDNI(p_dni);
+        this.setNombre(p_nombre);
+        this.setApellido(p_apellido);
+        this.setFechaNacimiento(p_fecha);
     }
     
     //accossers
@@ -54,11 +61,21 @@ public class Persona {
     private void setAnioNacimiento(int p_anio){
         Calendar miFecha = Calendar.getInstance();
         miFecha.set(Calendar.YEAR, p_anio);
+        this.setFechaNacimiento(miFecha);
     }
     
     public int getAnioNacimiento(){
-        int anio = this.fechaNacimiento.get(Calendar.YEAR);
+        Calendar fecha = this.getFechaNacimiento();
+        int anio = fecha.get(Calendar.YEAR);
         return anio;
+    }
+    
+    private void setFechaNacimiento(Calendar p_fecha){
+        this.fechaNacimiento = p_fecha;
+    }
+    
+    public Calendar getFechaNacimiento(){
+        return this.fechaNacimiento;
     }
     
     //metodo para calcular la edad de la persona
@@ -68,10 +85,11 @@ public class Persona {
     }
     
     public boolean esCumpleanos(){
-        Calendar fechaHoy = new GregorianCalendar();
-        if(fechaHoy.get(Calendar.YEAR) == this.getAnioNacimiento()){
+        Calendar fechaHoy = Calendar.getInstance();
+        if(fechaHoy.get(Calendar.MONTH) == this.fechaNacimiento.get(Calendar.MONTH) && 
+           fechaHoy.get(Calendar.DAY_OF_MONTH) == this.fechaNacimiento.get(Calendar.DAY_OF_MONTH)){
             return true;
-        }else{
+        } else {
             return false;
         }
     }

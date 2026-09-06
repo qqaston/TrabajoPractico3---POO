@@ -1,15 +1,7 @@
-/*
- * Un banco necesita modelar el concepto de cuenta bancaria, la cual debe permitir realizar depósitos y extracciones.   El
-modelo se representa en el siguiente diagrama de clases:
-
-La pantalla de salida del método
- */
-
-
 /**
- * Clase CuentaBancaria recrea un objeto una cuenta 
+ * Modela el concepto de cuenta bancaria, la cual debe permitir realizar depositos y extracciones
  * 
- * @author GAUNA GASTON LEONEL
+ * @author GAUNA GASTON LEONEL - BARRIOS MARCOS
  * @version 2/9/26
  */
 public class CuentaBancaria
@@ -20,19 +12,28 @@ public class CuentaBancaria
 
     /**
      * Constructor for objects of class CuentaBancaria
+     * 
+     * @param p_nroCuenta
+     * @param p_titular
      */
     public CuentaBancaria(int p_nroCuenta, Persona p_titular){
         this.setNroCuenta(p_nroCuenta);
         this.setTitular(p_titular);
     }
-
-    //accossers
+    
+    /**
+     * Constructor for objects of class CuentaBancaria
+     * 
+     * @param p_nroCuenta
+     * @param p_titular
+     */
     public CuentaBancaria(int p_nroCuenta, Persona p_titular, double p_saldo){
         this.setNroCuenta(p_nroCuenta);
         this.setTitular(p_titular);
         this.setSaldo(p_saldo);
     }
     
+    //accossers
     private void setNroCuenta(int p_nroCuenta){
         this.nroCuenta = p_nroCuenta;
     }
@@ -57,18 +58,22 @@ public class CuentaBancaria
         return this.saldo;
     }
     
-    /*
+    /**
      * El método
      * depositar(p_importe) incrementa el saldo actual con la cantidad pasada como parámetro.
+     * 
+     * @return el saldo actual sumado lo depositado
      */
     public double depositar(double p_saldo){
         this.setSaldo(this.getSaldo() + p_saldo);
         return this.getSaldo();
     }
     
-    /*
+    /**
      * El método
      * extraer(p_importe) disminuye el saldo actual. Ambos métodos devuelven el saldo resultante tras la operación.
+     * @param p_saldo
+     * @return el saldo actual restando el saldo extraido
      */
     
     public double extraer(double p_saldo){
@@ -77,8 +82,8 @@ public class CuentaBancaria
     }
     
     
-    /*
-     * mostrar() debe ser la siguiente (los valores en negrita dependen del estado interno del objeto):
+    /**
+     * imprime por pantalla los datos y el saldo del titular
      */
     
     public void mostrar(){
@@ -87,8 +92,8 @@ public class CuentaBancaria
         System.out.println("Saldo: " + this.getSaldo());
     }
     
-    /*
-     * The method toString(), returns a string, composed of the concatenation of the data (número, titular, saldo), tabulated.
+    /**
+     * @return a string, composed of the concatenation of the data (número, titular, saldo), tabulated.
      */
     
     public String toString(){

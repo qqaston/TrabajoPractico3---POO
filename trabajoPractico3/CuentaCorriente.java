@@ -1,8 +1,8 @@
 
 /**
- * Write a description of class CuentaCorriente here.
+ * Modela el concepto de una cuenta corriente 
  * 
- * @author GAUNA GASTON LEONEL
+ * @author GAUNA GASTON LEONEL - BARRIOS MARCOS
  * @version 3/9/26
  */
 public class CuentaCorriente
@@ -14,6 +14,8 @@ public class CuentaCorriente
     
     /**
      * Constructor for objects of class CuentaCorriente
+     * @param p_nroCuenta
+     * @param p_titular que es un objeto de la clase Persona
      */
     public CuentaCorriente(int p_nroCuenta, Persona p_titular){
         this.setNroCuenta(p_nroCuenta);
@@ -22,6 +24,12 @@ public class CuentaCorriente
         this.setLimiteDescubierto(500);
     }
     
+    /**
+     * Constructor for objects of class CuentaCorriente
+     * @param p_nroCuenta
+     * @param p_titular que es un objeto de la clase Persona
+     * @param p_saldo
+     */
     public CuentaCorriente(int p_nroCuenta, Persona p_titular, double p_saldo){
         this.setNroCuenta(p_nroCuenta);
         this.setTitular(p_titular);
@@ -29,6 +37,7 @@ public class CuentaCorriente
         this.setLimiteDescubierto(500);
     }
 
+    //accossers
     private void setNroCuenta(int p_nroCuenta){
         this.nroCuenta = p_nroCuenta;
     }
@@ -52,7 +61,7 @@ public class CuentaCorriente
     public double getSaldo(){
         return this.saldo;
     }
- 
+
     private void setLimiteDescubierto(double p_limiteDescubierto){
         this.limiteDescubierto = p_limiteDescubierto;
     }
@@ -63,6 +72,7 @@ public class CuentaCorriente
     
     /**
      * El método depositar(p_importe) sólo agrega el importe al saldo actual.
+     * @param p_importe
      */
     
     public void depositar(double p_importe){
@@ -71,6 +81,7 @@ public class CuentaCorriente
     
     /**
      * El método puedeExtraer(p_importe) devuelve true si el importe a retirar no supera el saldo más el límite de descubierto autorizado. 
+     * @return un boolean
      */
     private boolean puedoExtraer(double p_importe){
         if (p_importe <= (this.getLimiteDescubierto() + this.getSaldo())){
@@ -81,7 +92,8 @@ public class CuentaCorriente
     }
     
     /**
-     * El método extraccion(p_importe) es el que realiza efectivamente la extracción. 
+     * El método extraccion(p_importe) es el que realiza efectivamente la extracción.
+     * @param p_importe
      */
     private void extraccion(double p_importe){
         if (p_importe <= this.getSaldo()){
@@ -96,6 +108,7 @@ public class CuentaCorriente
     /**
      * El método extraer(p_importe) coordina la operación, de acuerdo a si se cumplen las condiciones de extracción, caso contrario
      * informará el motivo por el cual no se pudo extraer.
+     * @param p_importe
      */
     
     public void extraer(double p_importe){
@@ -108,7 +121,7 @@ public class CuentaCorriente
     }
     
     /**
-     * La salida impresa del método mostrar() debe ser la siguiente: (los valores en negrita dependen del estado interno del objeto)
+     * Imprime los datos del titular y el saldo disponible
      */
     
     public void mostrar(){

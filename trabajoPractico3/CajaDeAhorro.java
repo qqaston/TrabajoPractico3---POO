@@ -1,8 +1,8 @@
 
 /**
- * Write a description of class CajaDeAhorro here.
+ * MODELA EL CONCEPTO DE UNA CAJA DE AHORROS
  * 
- * @author GAUNA GASTON LEONEL
+ * @author GAUNA GASTON LEONEL - BARRIOS MARCOS
  * @version 3/9/26
  */
 public class CajaDeAhorro
@@ -14,6 +14,9 @@ public class CajaDeAhorro
 
     /**
      * Constructor for objects of class CajaDeAhorro
+     * 
+     * @param p_nroCuenta
+     * @param p_titualar es un objeto de la clase Persona 
      */
     public CajaDeAhorro(int p_nroCuenta, Persona p_titular){
         this.setNroCuenta(p_nroCuenta);
@@ -22,6 +25,11 @@ public class CajaDeAhorro
         this.setExtraccionesPosibles(10);
     }
     
+    /**
+     * @param p_nroCuenta
+     * @param p_titualar es un objeto de la clase Persona 
+     * @param p_saldo
+     */
     public CajaDeAhorro(int p_nroCuenta, Persona p_titular, double p_saldo){
         this.setNroCuenta(p_nroCuenta);
         this.setTitular(p_titular);
@@ -62,7 +70,7 @@ public class CajaDeAhorro
     }
     
     /**
-     *
+     * @param p_importe deposita saldo
      */
     
     public void depositar(double p_importe){
@@ -70,7 +78,8 @@ public class CajaDeAhorro
     }
     
     /**
-     * 
+     * @param p_importe
+     * @return un booleano dependiendo de si puede tiene saldo y si tiene extracciones disponibles
      */
     private boolean puedoExtraer(double p_importe){
         if (p_importe <= this.getSaldo() && this.getExtraccionesPosibles() > 0){
@@ -81,7 +90,7 @@ public class CajaDeAhorro
     }
     
     /**
-     *  
+     * @param p_importe extrae el saldo y resta la cantidad de extraciones posibles
      */
     private void extraccion(double p_importe){
         this.setSaldo(this.getSaldo() - p_importe);
@@ -89,6 +98,9 @@ public class CajaDeAhorro
     }
     
 
+    /**
+     * @param p_importe calcula si se puede extraer saldo y utiliza los metodos extraccion() y extraccionesPosibles()
+     */
     public void extraer(double p_importe){
         if(this.puedoExtraer(p_importe)){
             this.extraccion(p_importe);
@@ -100,7 +112,9 @@ public class CajaDeAhorro
         }
     }
     
-       
+    /**
+     * imprime por pantalla los datos del titular y el saldo disponible 
+     */ 
     public void mostrar(){
         System.out.println("- CAJA DE AHORRO -");
         System.out.println("Nro Cuenta: " + this.getNroCuenta() + " - Saldo: " + this.getSaldo());

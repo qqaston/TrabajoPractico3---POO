@@ -1,7 +1,7 @@
 /**
- * Write a description of class crearAlumno here.
+ * CLASE PERSONA MODELA UN OBJETO PERSONA PERMITIENDO OBTENER SUS DATOS A TRAVES DE LOS METODOS
  * 
- * @author GAUNA GASTON LEONEL 44.386.356
+ * @author GAUNA GASTON LEONEL - BARRIOS MARCOS
  * @version 5/9/26
  */
 import java.util.*;
@@ -15,7 +15,15 @@ public class Persona {
     private String apellido;
     private Calendar fechaNacimiento; //reemplazado (int anioNacimiento;);
     
-    //metodo constructor
+    /**
+     * metodo constructor
+     * 
+     * @param p_dni
+     * @param p_nombre
+     * @param p_apellido
+     * @param p_anio
+     * 
+     */
     public Persona(int p_dni, String p_nombre, String p_apellido,int p_anio){
         this.setDNI(p_dni);
         this.setNombre(p_nombre);
@@ -23,6 +31,15 @@ public class Persona {
         this.setAnioNacimiento(p_anio);
     }
     
+    /**
+     * metodo constructor
+     * 
+     * @param p_dni
+     * @param p_nombre
+     * @param p_apellido
+     * @param p_anio
+     * 
+     */
     public Persona(int p_dni, String p_nombre, String p_apellido,Calendar p_fecha){
         this.setDNI(p_dni);
         this.setNombre(p_nombre);
@@ -78,12 +95,18 @@ public class Persona {
         return this.fechaNacimiento;
     }
     
-    //metodo para calcular la edad de la persona
+    /**
+     * metodo para calcular la edad de la persona
+     * @return la edad segun el año
+     */
     public int edad(){
         Calendar fechaHoy = new GregorianCalendar();
         return fechaHoy.get(Calendar.YEAR) - this.getAnioNacimiento();
     }
     
+    /**
+     * @return un boolean que calcula si es el cumpleaños de la persona el dia de la fecha 
+     */
     public boolean esCumpleanos(){
         Calendar fechaHoy = Calendar.getInstance();
         if(fechaHoy.get(Calendar.MONTH) == this.fechaNacimiento.get(Calendar.MONTH) && 
@@ -94,15 +117,23 @@ public class Persona {
         }
     }
     
+    /**
+     * @return un string concatenando nombre y apellido
+     */
     public String nomYApe(){
         return this.nombre + " " + this.apellido;
     }
     
+    /**
+     * @return retorna un string concatenando apellido y nombre
+     */
     public String apeYNom(){
         return this.apellido + " " + this.nombre;
     }
     
-    //metodo que imprime por pantalla la informacion del objeto instanciado
+    /**
+     * metodo que imprime por pantalla la informacion del objeto instanciado
+     */
     public void mostrar(){
         System.out.println("Nombre y Apellido: " + this.nomYApe());
         System.out.println("DNI: " + this.getDNI() + "   Edad: " + this.edad());

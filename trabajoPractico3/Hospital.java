@@ -1,20 +1,27 @@
 
 /**
- * Write a description of class Hospital here.
+ * Clase hospital modela el hospital e imprime los datos del mismo
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author GAUNA GASTON LEONEL - BARRIOS MARCOS 
+ * @version 6/9/26
  */
 public class Hospital {
     
     private String nombreHospital;
     private String nombreDirector;
 
+    /**
+     * @param p_nombreHospital
+     * @param p_nombreDirector
+     */
     public Hospital(String p_nombreHospital, String p_nombreDirector) {
         this.setNombreHospital(p_nombreHospital);
         this.setNombreDirector(p_nombreDirector);
     }
 
+    /**
+     * @param p_nombreHospital
+     */
     private void setNombreHospital(String p_nombreHospital) {
         this.nombreHospital = p_nombreHospital;
     }

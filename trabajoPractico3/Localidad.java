@@ -1,8 +1,8 @@
 
 /**
- * Write a description of class Localidad here.
+ * Clase localalidad recrea
  * 
- * @author (your name) 
+ * @author GAUNA GASTON LEONEL - BARRIOS MARCOS 
  * @version (a version number or a date)
  */
 public class Localidad {
@@ -10,6 +10,13 @@ public class Localidad {
     private String nombre;
     private String provincia;
 
+    
+    /**
+     * metodo constructor
+     * 
+     * @param p_nombre
+     * @param p_provincia
+     */
     public Localidad(String p_nombre, String p_provincia) {
         this.setNombre(p_nombre);
         this.setProvincia(p_provincia);

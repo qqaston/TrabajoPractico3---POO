@@ -1,8 +1,8 @@
 
 /**
- * Write a description of class Paciente here.
+ * Clase que modela un paciente permitiendo obtener sus datos
  * 
- * @author (your name) 
+ * @author GAUNA GASTON LEONEL - BARRIOS MARCOS  
  * @version (a version number or a date)
  */
 public class Paciente {
@@ -13,6 +13,15 @@ public class Paciente {
     private Localidad localidadNacido;
     private Localidad localidadVive;
 
+    /**
+     * metodo contructor
+     * 
+     * @param p_historia
+     * @param p_nombre
+     * @param p_domicilio
+     * @param p_localidadNacido
+     * @param p_localidadVive
+     */
     public Paciente(int p_historia, String p_nombre, String p_domicilio, Localidad p_localidadNacido, Localidad p_localidadVive) {
         this.setHistoriaClinica(p_historia);
         this.setNombre(p_nombre);

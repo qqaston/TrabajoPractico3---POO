@@ -2,7 +2,7 @@
 /**
  * Write a description of class Rectangulo here.
  * 
- * @author GAUNA GASTON LEONEL
+ * @author GAUNA GASTON LEONEL - BARRIOS MARCOS
  * @version 1/9/26
  */
 public class Rectangulo

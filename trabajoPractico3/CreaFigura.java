@@ -2,7 +2,7 @@ import java.util.Random;
 /**
  * Write a description of class CreaFigura here.
  * 
- * @author GAUNA GASTON LEONEL
+ * @author GAUNA GASTON LEONEL - BARRIOS MARCOS
  * @version 31/8/2026
  */
 

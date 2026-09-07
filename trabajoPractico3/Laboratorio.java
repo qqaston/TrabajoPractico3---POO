@@ -1,7 +1,7 @@
 /**
  * Clase Laboratorio aplica la abstraccion de un objeto Laboratorio.
  * 
- * @author GAUNA GASTON LEONEL
+ * @author GAUNA GASTON LEONEL - BARRIOS MARCOS
  * @version 24/8/26
  */
 public class Laboratorio

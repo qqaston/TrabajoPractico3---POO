@@ -2,7 +2,7 @@
 /**
  * Write a description of class crearPunto here.
  * 
- * @author (your name) 
+ * @author GAUNA GASTON LEONEL - BARRIOS MARCOS
  * @version (a version number or a date)
  */
 import java.util.Scanner;

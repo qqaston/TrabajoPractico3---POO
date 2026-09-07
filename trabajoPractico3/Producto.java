@@ -2,7 +2,7 @@
 /**
  * Clase Producto que representa la abstraccion de un producto de una drogueria.
  * 
- * @author Gaston Leonel Gauna 
+ * @author Gaston Leonel Gauna - BARRIOS MARCOS
  * @version 24/8/26
  */
 public class Producto

@@ -1,7 +1,7 @@
 /**
  * Clase que modela un punto geométrico en el plano cartesiano.
  * 
- * @author GAUNA GASTON LEONEL
+ * @author GAUNA GASTON LEONEL - BARRIOS MARCOS
  * @version 23/08/26
  */
 public class Punto {

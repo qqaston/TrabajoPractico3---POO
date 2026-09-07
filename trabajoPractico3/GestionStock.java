@@ -35,35 +35,35 @@ public class GestionStock {
             
             switch (opcion) {
                 case 1:
-                    System.out.println("--- Detalles del Producto ---");
+                    System.out.println("\n--- Detalles del Producto ---");
                     prod1.mostrar(); // Llama al metodo mostrar de Producto
                     break;
                     
                 case 2:
-                    System.out.print("Ingrese la cantidad a ajustar (use negativo para restar): ");
+                    System.out.print("\nIngrese la cantidad a ajustar (use negativo para restar): ");
                     int cantidad = teclado.nextInt();
                     prod1.ajuste(cantidad); // Ajusta el stock sumando o restando
                     System.out.println("Stock actualizado correctamente.");
                     break;
                     
                 case 3:
-                    System.out.println("--- Precios ---");
+                    System.out.println("\n--- Precios ---");
                     // Muestra los calculos solicitados
                     System.out.println("Precio de Lista (+12%): $" + prod1.precioLista());
                     System.out.println("Precio al Contado (-5%): $" + prod1.precioContado());
                     break;
                     
                 case 4:
-                    System.out.println("--- Resumen ---");
+                    System.out.println("\n--- Resumen ---");
                     System.out.println(prod1.mostrarLinea()); // Retorna el String
                     break;
                     
                 case 0:
-                    System.out.println("Saliendo del sistema de gestión...");
+                    System.out.println("\nSaliendo del sistema de gestión...");
                     break;
                     
                 default:
-                    System.out.println("OpciOn no vAlida. Intente nuevamente.");
+                    System.out.println("\nOpciOn no vAlida. Intente nuevamente.");
             }
             
         } while (opcion != 0);

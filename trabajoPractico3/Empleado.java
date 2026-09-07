@@ -1,9 +1,11 @@
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
 /**
- * Clase que modela un empleado para administrar su liquidacion de sueldo.
+ * Clase que modela un empleado para administrar su liquidación de sueldo
+ * 
  *
- * @author GAUNA GASTON LEONEL
+ * @author GAUNA GASTON LEONEL - BARRIOS MARCOS
  * @version 5/9/26
  */
 public class Empleado {
@@ -15,10 +17,17 @@ public class Empleado {
     private double sueldoBasico;
     private Calendar fechaIngreso;
 
-    // Constructor anterior: mantiene el protocolo
-    public Empleado(long p_cuil, String p_apellido, String p_nombre,
-                    double p_importe, int p_anio) {
-
+    /**
+     * Constructor anterior de la clase Empleado
+     * 
+     * 
+     * @param p_cuil     
+     * @param p_apellido 
+     * @param p_nombre   
+     * @param p_importe  
+     * @param p_anio     
+     */
+    public Empleado(long p_cuil, String p_apellido, String p_nombre, double p_importe, int p_anio) {
         this.setCuil(p_cuil);
         this.setApellido(p_apellido);
         this.setNombre(p_nombre);
@@ -26,10 +35,17 @@ public class Empleado {
         this.setAnioIngreso(p_anio);
     }
 
-    // Nuevo constructor
-    public Empleado(long p_cuil, String p_apellido, String p_nombre,
-                    double p_importe, Calendar p_fecha) {
-
+    /**
+     * Constructor nuevo
+     * 
+     * 
+     * @param p_cuil     
+     * @param p_apellido 
+     * @param p_nombre   
+     * @param p_importe  
+     * @param p_fecha de tipo Calendar con la fecha exacta     
+     */
+    public Empleado(long p_cuil, String p_apellido, String p_nombre, double p_importe, Calendar p_fecha) {
         this.setCuil(p_cuil);
         this.setApellido(p_apellido);
         this.setNombre(p_nombre);
@@ -37,8 +53,7 @@ public class Empleado {
         this.setFechaIngreso(p_fecha);
     }
 
-    // Accessors de CUIL
-
+    //accesors
     private void setCuil(long p_cuil) {
         this.cuil = p_cuil;
     }
@@ -47,55 +62,51 @@ public class Empleado {
         return this.cuil;
     }
 
-    // Accessors de apellido
-
+    
     private void setApellido(String p_apellido) {
         this.apellido = p_apellido;
     }
 
+    
     public String getApellido() {
         return this.apellido;
     }
 
-    // Accessors de nombre
-
+    
     private void setNombre(String p_nombre) {
         this.nombre = p_nombre;
     }
 
+    
     public String getNombre() {
         return this.nombre;
     }
 
-    // Accessors de sueldo
-
+    
     private void setSueldoBasico(double p_importe) {
         this.sueldoBasico = p_importe;
     }
 
+    
     public double getSueldoBasico() {
         return this.sueldoBasico;
     }
 
-    // Accessors antiguos basados en int
-    // Se mantienen para preservar el protocolo.
-
+   
     private void setAnioIngreso(int p_anio) {
         Calendar fecha = new GregorianCalendar();
-
         fecha.set(Calendar.YEAR, p_anio);
         fecha.set(Calendar.MONTH, Calendar.JANUARY);
         fecha.set(Calendar.DAY_OF_MONTH, 1);
-
         this.setFechaIngreso(fecha);
     }
 
+    
     public int getAnioIngreso() {
         return this.getFechaIngreso().get(Calendar.YEAR);
     }
 
-    // Nuevos accessors basados en Calendar
-
+    
     private void setFechaIngreso(Calendar p_fecha) {
         this.fechaIngreso = p_fecha;
     }
@@ -104,14 +115,15 @@ public class Empleado {
         return this.fechaIngreso;
     }
 
-    // Antigüedad en años completos
-
+    /**
+     * Calcula los años completos de servicio del empleado en la empresa
+     * 
+     * @return La cantidad de años de antiguedad
+     */
     public int antiguedad() {
         Calendar fechaHoy = new GregorianCalendar();
-
         int anioHoy = fechaHoy.get(Calendar.YEAR);
         int anioIngreso = this.getFechaIngreso().get(Calendar.YEAR);
-
         int antiguedad = anioHoy - anioIngreso;
 
         if (fechaHoy.get(Calendar.MONTH) < this.getFechaIngreso().get(Calendar.MONTH)) {
@@ -120,21 +132,25 @@ public class Empleado {
                 && fechaHoy.get(Calendar.DAY_OF_MONTH) < this.getFechaIngreso().get(Calendar.DAY_OF_MONTH)) {
             antiguedad--;
         }
-
         return antiguedad;
     }
 
-    // Descuento aplicado al sueldo basico
-
+    /**
+     * Calcula los descuentos fijos aplicados al sueldo del empleado
+     * 
+     * @return El monto total a descontar
+     */
     private double descuento() {
         return (this.getSueldoBasico() * 2 / 100) + 1500;
     }
 
-    // Adicional por antigüedad
-
+    /**
+     * Calcula el monto adicional correspondiente según los años de antiguedad
+     * 
+     * @return El dinero extra a sumar al sueldo basico
+     */
     private double adicional() {
         int anios = this.antiguedad();
-
         if (anios < 2) {
             return this.getSueldoBasico() * 0.02;
         } else if (anios >= 2 && anios < 10) {
@@ -144,62 +160,69 @@ public class Empleado {
         }
     }
 
-    // Sueldo neto
-
+    /**
+     * Calcula el salario final del empleado luego de sumar adicionales y restar descuentos
+     * 
+     * @return El sueldo neto a cobrar
+     */
     public double sueldoNeto() {
-        return this.getSueldoBasico()
-                + this.adicional()
-                - this.descuento();
+        return this.getSueldoBasico() + this.adicional() - this.descuento();
     }
 
-    // Nombre y apellido
-
+    /**
+     * @return Un String concatenando el nombre y el apellido
+     */
     public String nomYApe() {
         return this.getNombre() + " " + this.getApellido();
     }
 
+    /**
+     * @return Un String concatenando el apellido y el nombre
+     */
     public String apeYNom() {
         return this.getApellido() + ", " + this.getNombre();
     }
 
-    // Métodos con la nomenclatura del enunciado
-
+    /**
+     * Variante del metodo solicitada en la nomenclatura del enunciado
+     * @return Un String concatenando el nombre y el apellido
+     */
     public String nomYape() {
         return this.getNombre() + " " + this.getApellido();
     }
 
+    /**
+     * Variante del metodo solicitada en la nomenclatura del enunciado
+     * @return Un String concatenando el apellido y el nombre
+     */
     public String apeYnom() {
         return this.getApellido() + ", " + this.getNombre();
     }
 
-    // Mostrar datos
-
+    /**
+     * Imprime por pantalla la informacion detallada del empleado
+     */
     public void mostrar() {
         System.out.println("Nombre y Apellido: " + this.nomYApe());
-        System.out.println("CUIL: " + this.getCuil()
-                + " Antigüedad: " + this.antiguedad()
-                + " años de servicio");
+        System.out.println("CUIL: " + this.getCuil() + " Antigüedad: " + this.antiguedad() + " años de servicio");
         System.out.println("Sueldo Neto: $ " + this.sueldoNeto());
     }
 
-    // Mostrar en una línea
-
+    /**
+     * @return Los datos resumidos del empleado tabulados en una sola linea de texto
+     */
     public String mostrarLinea() {
-        return this.getCuil()
-                + "\t"
-                + this.apeYNom()
-                + "\t$"
-                + this.sueldoNeto();
+        return this.getCuil() + "\t" + this.apeYNom() + "\t$" + this.sueldoNeto();
     }
 
-    // Determina si hoy es el aniversario del ingreso
-
+    /**
+     * Verifica si la fecha actual coincide en día y mes con la fecha de ingreso
+     * 
+     * @return true si es el aniversario del empleado, false en caso contrario
+     */
     public boolean esAniversario() {
         Calendar fechaHoy = new GregorianCalendar();
-
-        return fechaHoy.get(Calendar.MONTH)
-                == this.getFechaIngreso().get(Calendar.MONTH)
-                && fechaHoy.get(Calendar.DAY_OF_MONTH)
-                == this.getFechaIngreso().get(Calendar.DAY_OF_MONTH);
+        return fechaHoy.get(Calendar.MONTH) == this.getFechaIngreso().get(Calendar.MONTH)
+                && fechaHoy.get(Calendar.DAY_OF_MONTH) == this.getFechaIngreso().get(Calendar.DAY_OF_MONTH);
     }
 }

@@ -16,6 +16,12 @@ public class Punto {
         this.setY(0.0);
     }
 
+    /**
+     * metodo construcotr
+     * 
+     * @param p_x
+     * @param p_y
+     */
     public Punto(double p_x, double p_y) {
         this.setX(p_x);
         this.setY(p_y);
